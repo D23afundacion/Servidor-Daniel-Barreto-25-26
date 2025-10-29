@@ -45,3 +45,7 @@ Insert into tComentarios values
 (0, 'Sinceramente es un coche muy rápido pero no me gusta su diseño, es muy bajo e incomodo para mi gusto', 1, 5),
 (0, 'Es el mejor coche del mundo, es super rápido, super bonito, super cómodo y super seguro, no hay mejor coche que este :D', 1, 5),
 (0, 'Desde pequeño siempre he querido este coche y hace un mes por fin lo adquirí, estoy muy contento con el, es el diseño que tanto me encanta, muy comodo y super rápido', 4, 3);
+
+alter table tComentarios add column fecha date;
+
+UPDATE `mysitedb`.`tComentarios` SET `fecha` = current_date();

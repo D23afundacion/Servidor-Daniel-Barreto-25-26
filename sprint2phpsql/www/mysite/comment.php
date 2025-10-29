@@ -6,7 +6,7 @@
     <?php
         $id_coche = $_POST['id_coche'];
         $comentario = $_POST['new_comment'];
-        $query = "INSERT INTO tComentarios (comentario, id_usuario, id_coche) VALUES ('".$comentario."', NULL, ".$id_coche.")";
+        $query = "INSERT INTO tComentarios (comentario, id_usuario, id_coche, fecha) VALUES ('".$comentario."', NULL, ".$id_coche.", current_date())";
         $result = mysqli_query($db, $query) or die('Error');
         echo "<p>Nuevo comentario ";
         echo mysqli_insert_id($db);

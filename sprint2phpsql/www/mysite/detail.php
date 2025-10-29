@@ -25,7 +25,7 @@
         $only_row = mysqli_fetch_array($result);
         echo "<h1>Nombre: $only_row[1] $only_row[2]</h1>";
         echo "<img src='$only_row[3]'>";
-        echo "<h2>Ventas: $only_row[4]</h2>";
+        echo "<h2>Velocidad máxima: $only_row[4]</h2>";
     ?>
     <h3>Comentarios:</h3>
     <ul>
@@ -33,7 +33,7 @@
             $query2 = "SELECT * FROM tComentarios WHERE id_coche = $id_coche";
             $result2 = mysqli_query($db, $query2) or die('Query error');
             while ($row = mysqli_fetch_array($result2)) {
-                echo "<li>Comentario: $row[comentario].</li>";
+                echo "<li>Fecha: $row[fecha]. Comentario: $row[comentario].</li>";
             }
             mysqli_close($db);
         ?>
