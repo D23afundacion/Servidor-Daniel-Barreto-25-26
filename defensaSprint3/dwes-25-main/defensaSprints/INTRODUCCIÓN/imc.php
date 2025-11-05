@@ -8,17 +8,18 @@
         return $peso / ($altura * $altura);
       }
 
-      if (isset($_GET["peso"]) && isset($_GET["altura"])) {
+      if (isset($_GET["edad"]) && isset($_GET["peso"]) && isset($_GET["altura"])) {
+        $edad = $_GET["edad"];
         $peso = $_GET["peso"];
         $altura = $_GET["altura"];
         $imc = calcular_imc($peso, $altura);
 
         if ($imc < 18.5) {
-          echo "IMC: " . $imc . " → Bajo peso";
+          echo "Edad: $edad, IMC: " . $imc . " → Bajo peso";
         } else if ($imc < 25) {
-          echo "IMC: " . $imc . " → Normal";
+          echo "Edad: $edad, IMC: " . $imc . " → Normal";
         } else {
-          echo "IMC: " . $imc . " → Sobrepeso";
+          echo "Edad: $edad, IMC: " . $imc . " → Sobrepeso";
         }
       } else {
         echo "Proporciona peso y altura por GET.";
