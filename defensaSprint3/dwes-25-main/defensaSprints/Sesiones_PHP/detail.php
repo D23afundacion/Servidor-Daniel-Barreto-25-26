@@ -19,7 +19,7 @@ $query = "
   LEFT JOIN tUsuarios u ON c.usuario_id = u.id
   WHERE c.cancion_id = ?
 ";
-$stmt2 = mysqli_prepare($db, $query);
+$stmt2 = mysqli_prepare($db, "SELECT * FROM tComentarios WHERE cancion_id = ?");
 mysqli_stmt_bind_param($stmt2, "i", $cancion_id);
 mysqli_stmt_execute($stmt2);
 $res2 = mysqli_stmt_get_result($stmt2);
@@ -48,12 +48,18 @@ echo '      <a href="/main.php">Volver</a>';
 echo '    </nav>';
 echo '  </header>';
 
+if (empty($_SESSION['user_id'])) {
+  echo '<h1>No hay usuario logeado</h1>';
+} else {
+  echo '<h1>Usuario con id = ' . $_SESSION['user_id'] . '</h1>';
+}
+
 echo '  <h2>' . $song['artista'] . '</h2>';
 echo '  <img class="cover" src="' . $song['url_imagen'] . '" alt="cover"><br>';
 /*Consigue que se muestren los comentarios*/
 
 echo '  <h3>Comentarios</h3>';
-while ($row = mysqli_fetch_assoc($res2)) {
+while ($row = mysqli_fetch_array($res2)) {
   echo '  <div class="comment">';
   echo '    <p>' . $row[1] . '</p>';
   echo '    <p class="muted">';

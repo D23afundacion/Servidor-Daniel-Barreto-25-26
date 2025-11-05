@@ -36,17 +36,17 @@ echo '  <h1>Listado de canciones</h1>';
 echo '  <nav>';
 if (!empty($_SESSION['user_id'])) {
  
-  echo '    <a href="/logout.php">Logout</a>';
+  echo '    <a href="/Sesiones_PHP/logout.php">Logout</a>';
 } else {
-  echo '    <a href="/register.html">Registro</a>';
-  echo '    <a href="/login.html">Login</a>';
+  echo '    <a href="/Sesiones_PHP/register.html">Registro</a>';
+  echo '    <a href="/Sesiones_PHP/login.html">Login</a>';
 }
 echo '  </nav>';
 echo '</header>';
 /*Haz que se listen todas las canciones*/
 echo '<div class="list">';
 while ($linea = mysqli_fetch_assoc($result)) {
-  echo '  <a class="item" href="/detail.php?cancion_id=' . $linea["id"] . '">';
+  echo '  <a class="item" href="/Sesiones_PHP/detail.php?cancion_id=' . $linea["id"] . '">';
   echo '    <img class="thumb" src="' . $linea["url_imagen"] . '" alt="cover">';
   echo '    <div>';
   echo '      <h3 class="title">' . $linea["titulo"] . '</h3>';
