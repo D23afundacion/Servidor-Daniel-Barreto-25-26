@@ -43,7 +43,7 @@ echo '<body>';
 echo '  <header>';
 echo '    <h1>' . $song['titulo'] . '</h1>';
 echo '    <nav>';
-echo '      <a href="/main.php">Volver</a>';
+echo '      <a href="/Sesiones_PHP/main.php">Volver</a>';
 
 echo '    </nav>';
 echo '  </header>';
