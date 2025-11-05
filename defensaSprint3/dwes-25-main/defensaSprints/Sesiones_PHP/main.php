@@ -45,12 +45,12 @@ echo '  </nav>';
 echo '</header>';
 /*Haz que se listen todas las canciones*/
 echo '<div class="list">';
-while () {
-  echo '  <a class="item" href="/detail.php?cancion_id=' .  . '">';
-  echo '    <img class="thumb" src="' . . '" alt="cover">';
+while ($linea = mysqli_fetch_assoc($result)) {
+  echo '  <a class="item" href="/detail.php?cancion_id=' . $linea["id"] . '">';
+  echo '    <img class="thumb" src="' . $linea["url_imagen"] . '" alt="cover">';
   echo '    <div>';
-  echo '      <h3 class="title">' .  . '</h3>';
-  echo '      <p class="artist">' .  . '</p>';
+  echo '      <h3 class="title">' . $linea["titulo"] . '</h3>';
+  echo '      <p class="artist">' . $linea["artista"] . '</p>';
   echo '    </div>';
   echo '  </a>';
 }
