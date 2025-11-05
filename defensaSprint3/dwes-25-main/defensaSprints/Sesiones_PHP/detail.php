@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_array($res2)) {
 }
 
 echo '  <h3>Añadir comentario</h3>';
-echo '  <form action="/comment.php" method="post">';
+echo '  <form action="/Sesiones_PHP/comment.php" method="post">';
 echo '    <input type="hidden" name="cancion_id" value="' . $cancion_id . '">';
 echo '    <textarea name="new_comment" rows="3" cols="60" required></textarea><br>';
 echo '    <input type="submit" value="Enviar comentario">';
